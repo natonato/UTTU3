@@ -918,6 +918,9 @@
       try {
         history.replaceState(null, "", "?page=" + pageId);
       } catch (e) {}
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
       render();
     }
 
