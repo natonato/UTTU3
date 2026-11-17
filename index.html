@@ -454,9 +454,12 @@
       z-index: 2000;
     }
 
-    /* Mobile Color Toggle (hidden on desktop) */
+    /* Mobile / Desktop Display Helpers */
     .mobile-color-toggle {
       display: none;
+    }
+    .mobile-only {
+      display: none !important;
     }
 
     /* ========================================================
@@ -708,7 +711,38 @@
         gap: 3px !important;
       }
 
-      /* Mobile Grid Columns */
+      .desktop-only {
+        display: none !important;
+      }
+      .mobile-only {
+        display: block !important;
+      }
+
+      /* Page 3 mobile ordering: SSR+ -> SSR -> SR+ -> SR */
+      .sheet-row.page-3-row {
+        display: contents !important;
+      }
+      [id="block-SSR+"] {
+        order: 1 !important;
+      }
+      #block-SSR {
+        order: 2 !important;
+      }
+      [id="block-SR+"] {
+        order: 3 !important;
+      }
+      #block-SR {
+        order: 4 !important;
+      }
+
+      /* SE & LE separate 4/3 mobile grids */
+      #block-SE .cards-grid,
+      #block-LE .cards-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 4px !important;
+      }
+
+      /* Mobile Grid Columns: 5 per row for SSR+, SSR, SR+, SR, R, N */
       #block-SP .cards-grid {
         grid-template-columns: min(120px, 36%) !important;
         justify-content: flex-start;
@@ -730,19 +764,13 @@
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       }
       [id="block-SSR+"] .cards-grid,
-      #block-SSR .cards-grid {
-        grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-        gap: 3px !important;
-      }
+      #block-SSR .cards-grid,
       [id="block-SR+"] .cards-grid,
-      #block-SR .cards-grid {
-        grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
-        gap: 3px !important;
-      }
+      #block-SR .cards-grid,
       #block-R .cards-grid,
       #block-N .cards-grid {
-        grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
-        gap: 3px !important;
+        grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+        gap: 4px !important;
       }
     }
 
@@ -1001,10 +1029,10 @@
         row1.appendChild(createStandardBlock("P", 3));
 
         // ==========================================
-        // SE & LE SNAPPED CONTAINER (7x2 Grid with Step Line)
+        // SE & LE SNAPPED CONTAINER (Desktop: 7x2 Grid with Step Line)
         // ==========================================
         const seLeBlock = document.createElement("section");
-        seLeBlock.className = "grade-block se-le-block";
+        seLeBlock.className = "grade-block se-le-block desktop-only";
         seLeBlock.id = "block-SE-LE";
 
         seLeBlock.innerHTML = `
@@ -1065,6 +1093,18 @@
         });
 
         row1.appendChild(seLeBlock);
+
+        // Mobile-only separated SE and LE blocks (4/3 layout)
+        const seMobileBlock = createStandardBlock("SE", 4);
+        seMobileBlock.className = "grade-block mobile-only";
+        seMobileBlock.id = "block-SE";
+        row1.appendChild(seMobileBlock);
+
+        const leMobileBlock = createStandardBlock("LE", 4);
+        leMobileBlock.className = "grade-block mobile-only";
+        leMobileBlock.id = "block-LE";
+        row1.appendChild(leMobileBlock);
+
         root.appendChild(row1);
 
         // Row 2: CE, XR, VR, MR (all 3x2)
@@ -1100,13 +1140,13 @@
       } else if (currentPageId === 3) {
         // --- PAGE 3 ---
         const row1 = document.createElement("div");
-        row1.className = "sheet-row";
+        row1.className = "sheet-row page-3-row";
         row1.appendChild(createStandardBlock("SSR+", 5));
         row1.appendChild(createStandardBlock("SR+", 6));
         root.appendChild(row1);
 
         const row2 = document.createElement("div");
-        row2.className = "sheet-row";
+        row2.className = "sheet-row page-3-row";
         row2.appendChild(createStandardBlock("SSR", 5));
         row2.appendChild(createStandardBlock("SR", 6));
         root.appendChild(row2);
@@ -1122,6 +1162,7 @@
     }
 
     function updateSeLeStepLine() {
+      if (window.innerWidth <= 820) return;
       const block = document.getElementById("block-SE-LE");
       if (!block) return;
       const se3 = block.querySelector(".card-se-2");
