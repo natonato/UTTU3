@@ -467,7 +467,7 @@
       html, body {
         width: 100%;
         max-width: 100vw;
-        overflow-x: hidden;
+        overflow-x: clip;
       }
 
       body {
@@ -479,8 +479,11 @@
         touch-action: manipulation;
       }
 
-      /* Compact 2-row mobile header */
+      /* Compact 2-row sticky mobile header */
       header {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
         padding: 8px 10px;
         flex-direction: column;
         align-items: stretch;
