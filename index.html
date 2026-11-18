@@ -302,15 +302,14 @@
       box-shadow: 0 0 10px rgba(59, 130, 246, 0.8) !important;
     }
 
-    /* 1.5x Thick Mode (Desktop) */
-    body.thick-border .card-item {
-      border-width: 5.5px !important;
-    }
+    /* 1.5x Thick Mode (Desktop) - Outward solid expansion: zero card shrinkage */
     body.thick-border .card-item.checked-red {
-      box-shadow: 0 0 14px rgba(239, 68, 68, 0.95) !important;
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 0 2.5px #ef4444, 0 0 14px rgba(239, 68, 68, 0.95) !important;
     }
     body.thick-border .card-item.checked-blue {
-      box-shadow: 0 0 14px rgba(59, 130, 246, 0.95) !important;
+      border-color: #3b82f6 !important;
+      box-shadow: 0 0 0 2.5px #3b82f6, 0 0 14px rgba(59, 130, 246, 0.95) !important;
     }
     body.thick-border .card-badge {
       min-width: 34px;
@@ -739,9 +738,19 @@
       .card-badge.red { left: 2px; }
       .card-badge.blue { right: 2px; }
 
-      /* 1.5x Thick Mode (Mobile) */
-      body.thick-border .card-item {
-        border-width: 5px !important;
+      /* Mobile Card Base Border */
+      .card-item {
+        border-width: 2.5px;
+      }
+
+      /* 1.5x Thick Mode (Mobile) - Outward solid expansion: zero card shrinkage */
+      body.thick-border .card-item.checked-red {
+        border-color: #ef4444 !important;
+        box-shadow: 0 0 0 2px #ef4444, 0 0 12px rgba(239, 68, 68, 0.95) !important;
+      }
+      body.thick-border .card-item.checked-blue {
+        border-color: #3b82f6 !important;
+        box-shadow: 0 0 0 2px #3b82f6, 0 0 12px rgba(59, 130, 246, 0.95) !important;
       }
       body.thick-border .card-badge {
         min-width: 28px;
