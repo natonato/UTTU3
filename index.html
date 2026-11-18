@@ -502,7 +502,7 @@
     }
 
     /* Mobile / Desktop Display Helpers */
-    .mobile-color-toggle {
+    .btn-color-toggle {
       display: none;
     }
     .mobile-only {
@@ -583,64 +583,47 @@
         display: none !important;
       }
 
-      /* Mobile Red / Blue Selection Toggle */
-      .mobile-color-toggle {
-        display: inline-flex;
-        align-items: center;
-        background: #f1f5f9;
-        padding: 2px;
-        border-radius: 6px;
-        border: 1px solid #cbd5e1;
-        gap: 2px;
-        flex: 0 0 auto;
-        height: 32px;
-        box-sizing: border-box;
-      }
-
-      .color-toggle-btn {
-        display: inline-flex;
+      /* Mobile Single Red / Blue Toggle Button */
+      .header-actions .btn-color-toggle {
+        display: inline-flex !important;
         align-items: center;
         justify-content: center;
-        gap: 4px;
-        padding: 3px 8px;
-        font-size: 0.78rem;
-        font-weight: 700;
-        border: none;
-        border-radius: 4px;
-        background: transparent;
-        color: #64748b;
+        gap: 5px;
+        padding: 6px 10px !important;
+        font-size: 0.78rem !important;
+        font-weight: 800 !important;
+        height: 32px !important;
+        border-radius: 6px !important;
+        border: 1px solid transparent !important;
+        white-space: nowrap !important;
         cursor: pointer;
+        flex: 0 0 auto !important;
+        box-sizing: border-box !important;
         transition: all 0.15s ease;
         line-height: 1;
-        height: 26px;
-        white-space: nowrap;
+        user-select: none;
       }
 
-      .color-toggle-btn .color-indicator {
-        width: 8px;
-        height: 8px;
+      .btn-color-toggle.red {
+        background: #ef4444 !important;
+        color: #ffffff !important;
+        border-color: #dc2626 !important;
+        box-shadow: 0 1px 3px rgba(239, 68, 68, 0.4) !important;
+      }
+
+      .btn-color-toggle.blue {
+        background: #3b82f6 !important;
+        color: #ffffff !important;
+        border-color: #2563eb !important;
+        box-shadow: 0 1px 3px rgba(59, 130, 246, 0.4) !important;
+      }
+
+      .btn-color-toggle .color-indicator {
+        width: 7px;
+        height: 7px;
         border-radius: 50%;
+        background: #ffffff;
         display: inline-block;
-      }
-      .color-toggle-btn.red .color-indicator { background: #ef4444; }
-      .color-toggle-btn.blue .color-indicator { background: #3b82f6; }
-
-      .color-toggle-btn.red.active {
-        background: #ef4444;
-        color: #ffffff;
-        box-shadow: 0 1px 3px rgba(239, 68, 68, 0.4);
-      }
-      .color-toggle-btn.red.active .color-indicator {
-        background: #ffffff;
-      }
-
-      .color-toggle-btn.blue.active {
-        background: #3b82f6;
-        color: #ffffff;
-        box-shadow: 0 1px 3px rgba(59, 130, 246, 0.4);
-      }
-      .color-toggle-btn.blue.active .color-indicator {
-        background: #ffffff;
       }
 
       .header-actions .btn-thick {
@@ -883,15 +866,11 @@
         <span class="twitter-text">제작자 트위터</span>
       </a>
 
-      <!-- Mobile Color Toggle: Red (+1) / Blue (-1) -->
-      <div class="mobile-color-toggle" id="mobileColorToggle" title="모바일 탭 모드">
-        <button type="button" class="color-toggle-btn red active" id="btnColorRed" onclick="setMobileColor('red')">
-          <span class="color-indicator"></span>빨강
-        </button>
-        <button type="button" class="color-toggle-btn blue" id="btnColorBlue" onclick="setMobileColor('blue')">
-          <span class="color-indicator"></span>파랑
-        </button>
-      </div>
+      <!-- Mobile Single Color Toggle (Red / Blue) -->
+      <button type="button" class="btn btn-color-toggle red" id="btnColorToggle" onclick="toggleMobileColor()" title="탭 색상 전환 (빨강 / 파랑)">
+        <span class="color-indicator"></span>
+        <span id="colorToggleText">빨강</span>
+      </button>
 
       <button type="button" class="btn btn-thick" id="btnThickToggle" onclick="toggleThickBorder()" title="테두리 및 숫자 1.5배 굵게">
         <span class="thick-text-full">굵은 선 (1.5x)</span>
@@ -1066,17 +1045,28 @@
 
     let mobileColorMode = "red"; // 'red' (Left click / +1) or 'blue' (Right click / -1)
 
+    function toggleMobileColor() {
+      mobileColorMode = (mobileColorMode === "red") ? "blue" : "red";
+      applyMobileColorUI();
+    }
+
     function setMobileColor(mode) {
       mobileColorMode = mode;
-      const redBtn = document.getElementById("btnColorRed");
-      const blueBtn = document.getElementById("btnColorBlue");
-      if (redBtn && blueBtn) {
-        if (mode === "red") {
-          redBtn.classList.add("active");
-          blueBtn.classList.remove("active");
+      applyMobileColorUI();
+    }
+
+    function applyMobileColorUI() {
+      const btn = document.getElementById("btnColorToggle");
+      const txt = document.getElementById("colorToggleText");
+      if (btn) {
+        if (mobileColorMode === "red") {
+          btn.className = "btn btn-color-toggle red";
+          if (txt) txt.innerText = "빨강";
+          btn.title = "현재 모드: 빨강 (+1) - 클릭하여 파랑 모드로 전환";
         } else {
-          blueBtn.classList.add("active");
-          redBtn.classList.remove("active");
+          btn.className = "btn btn-color-toggle blue";
+          if (txt) txt.innerText = "파랑";
+          btn.title = "현재 모드: 파랑 (-1) - 클릭하여 빨강 모드로 전환";
         }
       }
     }
@@ -1867,6 +1857,7 @@
     // Boot
     loadSavedState();
     loadThickBorderSetting();
+    applyMobileColorUI();
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const p = parseInt(urlParams.get("page"), 10);
