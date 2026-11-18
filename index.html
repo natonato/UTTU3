@@ -1367,6 +1367,22 @@
     }
 
     // High Density Canvas Export Function
+    const CANVAS_FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif";
+
+    function createExportCanvas(w, h) {
+      const SCALE = 2; // 2x Retina High-DPI supersampling
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.round(w * SCALE);
+      canvas.height = Math.round(h * SCALE);
+      const ctx = canvas.getContext("2d");
+      ctx.scale(SCALE, SCALE);
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, w, h);
+      return { canvas, ctx };
+    }
+
     async function renderPageToCanvas(pageId) {
       const CARD_W = 136;
       const CARD_H = 188;
@@ -1395,12 +1411,7 @@
         canvasW = Math.max(r1_w, r2_w) + 24;
         canvasH = r1_h + r2_h + ROW_GAP + 24;
 
-        const canvas = document.createElement("canvas");
-        canvas.width = canvasW;
-        canvas.height = canvasH;
-        const ctx = canvas.getContext("2d");
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(0, 0, canvasW, canvasH);
+        const { canvas, ctx } = createExportCanvas(canvasW, canvasH);
 
         async function drawBlock(grade, cols, x, y, isP = false) {
           const cards = groupedCards[grade] || [];
@@ -1417,7 +1428,7 @@
           ctx.strokeRect(x, y, bw, bh);
 
           ctx.fillStyle = "#0f172a";
-          ctx.font = "bold 16px sans-serif";
+          ctx.font = "bold 16px " + CANVAS_FONT;
           ctx.fillText(grade, x + BLOCK_PADDING, y + 20);
 
           // Header underline matching .grade-header
@@ -1459,7 +1470,7 @@
 
         // SE Header
         ctx.fillStyle = "#0f172a";
-        ctx.font = "bold 16px sans-serif";
+        ctx.font = "bold 16px " + CANVAS_FONT;
         ctx.fillText("SE", seLeX + BLOCK_PADDING, seLeY + 20);
 
         ctx.strokeStyle = "#e5e7eb";
@@ -1545,12 +1556,7 @@
         canvasW = left_w + right_w + 14 + 24;
         canvasH = Math.max(left_h, right_h) + 24;
 
-        const canvas = document.createElement("canvas");
-        canvas.width = canvasW;
-        canvas.height = canvasH;
-        const ctx = canvas.getContext("2d");
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(0, 0, canvasW, canvasH);
+        const { canvas, ctx } = createExportCanvas(canvasW, canvasH);
 
         let cy = 12;
         for (const g of ["ER", "LSR+", "LSR"]) {
@@ -1563,7 +1569,7 @@
           ctx.strokeRect(12, cy, left_w, bh);
 
           ctx.fillStyle = "#0f172a";
-          ctx.font = "bold 16px sans-serif";
+          ctx.font = "bold 16px " + CANVAS_FONT;
           ctx.fillText(g, 12 + BLOCK_PADDING, cy + 20);
 
           ctx.strokeStyle = "#e5e7eb";
@@ -1595,7 +1601,7 @@
           ctx.strokeRect(rx, cy, right_w, lr_block_h);
 
           ctx.fillStyle = "#0f172a";
-          ctx.font = "bold 16px sans-serif";
+          ctx.font = "bold 16px " + CANVAS_FONT;
           ctx.fillText(g, rx + BLOCK_PADDING, cy + 20);
 
           ctx.strokeStyle = "#e5e7eb";
@@ -1628,12 +1634,7 @@
         canvasW = ssr_w + sr_w + 14 + 24;
         canvasH = row_h * 2 + ROW_GAP + 24;
 
-        const canvas = document.createElement("canvas");
-        canvas.width = canvasW;
-        canvas.height = canvasH;
-        const ctx = canvas.getContext("2d");
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(0, 0, canvasW, canvasH);
+        const { canvas, ctx } = createExportCanvas(canvasW, canvasH);
 
         async function drawGridBlock(grade, cols, x, y) {
           const cards = groupedCards[grade] || [];
@@ -1648,7 +1649,7 @@
           ctx.strokeRect(x, y, bw, bh);
 
           ctx.fillStyle = "#0f172a";
-          ctx.font = "bold 16px sans-serif";
+          ctx.font = "bold 16px " + CANVAS_FONT;
           ctx.fillText(grade, x + BLOCK_PADDING, y + 20);
 
           ctx.strokeStyle = "#e5e7eb";
@@ -1686,12 +1687,7 @@
         canvasW = r_w * 2 + 14 + 24;
         canvasH = r_h + 24;
 
-        const canvas = document.createElement("canvas");
-        canvas.width = canvasW;
-        canvas.height = canvasH;
-        const ctx = canvas.getContext("2d");
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(0, 0, canvasW, canvasH);
+        const { canvas, ctx } = createExportCanvas(canvasW, canvasH);
 
         async function drawGridBlock4(grade, cols, x, y) {
           const cards = groupedCards[grade] || [];
@@ -1702,7 +1698,7 @@
           ctx.strokeRect(x, y, r_w, r_h);
 
           ctx.fillStyle = "#0f172a";
-          ctx.font = "bold 16px sans-serif";
+          ctx.font = "bold 16px " + CANVAS_FONT;
           ctx.fillText(grade, x + BLOCK_PADDING, y + 20);
 
           ctx.strokeStyle = "#e5e7eb";
@@ -1754,9 +1750,11 @@
             ctx.stroke();
 
             ctx.fillStyle = "#ffffff";
-            ctx.font = "bold 16px sans-serif";
+            ctx.font = "bold 16px " + CANVAS_FONT;
             ctx.textAlign = "center";
-            ctx.fillText(cnt.toString(), cx + 18, cy + 24);
+            ctx.textBaseline = "middle";
+            ctx.fillText(cnt.toString(), cx + 18, cy + 18);
+            ctx.textBaseline = "alphabetic";
             ctx.textAlign = "start";
           } else {
             ctx.strokeStyle = "#ef4444";
@@ -1772,9 +1770,11 @@
             ctx.stroke();
 
             ctx.fillStyle = "#ffffff";
-            ctx.font = "bold 13px sans-serif";
+            ctx.font = "bold 13px " + CANVAS_FONT;
             ctx.textAlign = "center";
-            ctx.fillText(cnt.toString(), cx + 16, cy + 20);
+            ctx.textBaseline = "middle";
+            ctx.fillText(cnt.toString(), cx + 16, cy + 16);
+            ctx.textBaseline = "alphabetic";
             ctx.textAlign = "start";
           }
         } else if (cnt < 0) {
@@ -1792,9 +1792,11 @@
             ctx.stroke();
 
             ctx.fillStyle = "#ffffff";
-            ctx.font = "bold 16px sans-serif";
+            ctx.font = "bold 16px " + CANVAS_FONT;
             ctx.textAlign = "center";
-            ctx.fillText(Math.abs(cnt).toString(), cx + cw - 18, cy + 24);
+            ctx.textBaseline = "middle";
+            ctx.fillText(Math.abs(cnt).toString(), cx + cw - 18, cy + 18);
+            ctx.textBaseline = "alphabetic";
             ctx.textAlign = "start";
           } else {
             ctx.strokeStyle = "#3b82f6";
@@ -1810,9 +1812,11 @@
             ctx.stroke();
 
             ctx.fillStyle = "#ffffff";
-            ctx.font = "bold 13px sans-serif";
+            ctx.font = "bold 13px " + CANVAS_FONT;
             ctx.textAlign = "center";
-            ctx.fillText(Math.abs(cnt).toString(), cx + cw - 16, cy + 20);
+            ctx.textBaseline = "middle";
+            ctx.fillText(Math.abs(cnt).toString(), cx + cw - 16, cy + 16);
+            ctx.textBaseline = "alphabetic";
             ctx.textAlign = "start";
           }
         }
