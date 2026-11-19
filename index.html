@@ -943,6 +943,39 @@
     const OLD_STORAGE_KEY = "uttu3_count_state_v3";
     const STORAGE_KEY = "uttu3_count_state_v4";
     const THICK_BORDER_KEY = "uttu3_thick_border_v1";
+
+    // Legacy v3 ID -> Official v4 ID mapping for N grade
+    const V3_TO_V4_MAP = {
+      "N-001": "N-002", // 로거헤드
+      "N-002": "N-022", // 라 수르스
+      "N-003": "N-027", // 리사&루이스
+      "N-004": "N-023", // 다그닥 달리
+      "N-005": "N-004", // 버디 페어차일드
+      "N-006": "N-015", // 파비아
+      "N-007": "N-028", // 미스 라디오
+      "N-008": "N-011", // 테넌트
+      "N-009": "N-021", // 레일라니
+      "N-010": "N-025", // 존 티토
+      "N-011": "N-003", // 네임데이
+      "N-012": "N-017", // 빨간 망토
+      "N-013": "N-016", // 겨울
+      "N-014": "N-006", // 마릴린 (스위트하트)
+      "N-015": "N-007", // 디케
+      "N-016": "N-010", // 베이비 블루
+      "N-017": "N-013", // APPLe
+      "N-018": "N-008", // 벌룬 파티
+      "N-019": "N-018", // 에릭
+      "N-020": "N-014", // 이글
+      "N-021": "N-019", // 레이비스
+      "N-022": "N-001", // 슬라우치 햇
+      "N-023": "N-009", // 사츠키
+      "N-024": "N-026", // 광대
+      "N-025": "N-024", // 스푸트니크
+      "N-026": "N-005", // X
+      "N-027": "N-020", // 크리스탈로
+      "N-028": "N-012"  // 네크롤로지스트
+    };
+
     let cardCounts = {}; 
     let currentPageId = 1;
     let isThickBorder = false;
@@ -999,10 +1032,16 @@
           return;
         }
 
-        // Fallback to legacy v3 save if present; v3 remains intact in localStorage
+        // Fallback: migrate from legacy v3 while preserving existing v3 untouched
         const oldSaved = localStorage.getItem(OLD_STORAGE_KEY);
         if (oldSaved !== null) {
-          cardCounts = JSON.parse(oldSaved);
+          const oldCounts = JSON.parse(oldSaved);
+          const migrated = {};
+          for (const [key, val] of Object.entries(oldCounts)) {
+            const mappedKey = V3_TO_V4_MAP[key] || key;
+            migrated[mappedKey] = val;
+          }
+          cardCounts = migrated;
         }
       } catch (e) {
         console.error(e);
