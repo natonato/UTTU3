@@ -1871,282 +1871,282 @@ window.CARDS_DATA = [
   },
   {
     "id": "N-001",
-    "name": "로거헤드",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-001_宽檐帽.webp",
-    "name_cn": "空脑袋"
-  },
-  {
-    "id": "N-002",
-    "name": "라 수르스",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-002_空脑袋.webp",
-    "name_cn": "拉拉泉"
-  },
-  {
-    "id": "N-003",
-    "name": "리사&루이스",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-003_命名日.webp",
-    "name_cn": "丽莎&路易斯"
-  },
-  {
-    "id": "N-004",
-    "name": "다그닥 달리",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-004_嚼嚼松果.webp",
-    "name_cn": "哒哒达利"
-  },
-  {
-    "id": "N-005",
-    "name": "버디 페어차일드",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-005_X.webp",
-    "name_cn": "嚼嚼松果"
-  },
-  {
-    "id": "N-006",
-    "name": "파비아",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-006_玛丽莲.webp",
-    "name_cn": "狼群"
-  },
-  {
-    "id": "N-007",
-    "name": "미스 라디오",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-007_帕米埃.webp",
-    "name_cn": "无线电小姐"
-  },
-  {
-    "id": "N-008",
-    "name": "테넌트",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-008_气球派对.webp",
-    "name_cn": "坦南特"
-  },
-  {
-    "id": "N-009",
-    "name": "레일라니",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-009_五色月.webp",
-    "name_cn": "莉拉妮"
-  },
-  {
-    "id": "N-010",
-    "name": "존 티토",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-010_婴儿蓝.webp",
-    "name_cn": "约翰·提托"
-  },
-  {
-    "id": "N-011",
-    "name": "네임데이",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-011_坦南特.webp",
-    "name_cn": "命名日"
-  },
-  {
-    "id": "N-012",
-    "name": "빨간 망토",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-012_讣告人.webp",
-    "name_cn": "红斗篷"
-  },
-  {
-    "id": "N-013",
-    "name": "겨울",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-013_APPLe.webp",
-    "name_cn": "冬"
-  },
-  {
-    "id": "N-014",
-    "name": "스위트하트",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-014_小春雀儿.webp",
-    "name_cn": "玛丽莲"
-  },
-  {
-    "id": "N-015",
-    "name": "디케",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-015_狼群.webp",
-    "name_cn": "帕米埃"
-  },
-  {
-    "id": "N-016",
-    "name": "베이비 블루",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-016_冬.webp",
-    "name_cn": "婴儿蓝"
-  },
-  {
-    "id": "N-017",
-    "name": "APPLe",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-017_红斗篷.webp",
-    "name_cn": "APPLe"
-  },
-  {
-    "id": "N-018",
-    "name": "벌룬 파티",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-018_埃里克.webp",
-    "name_cn": "气球派对"
-  },
-  {
-    "id": "N-019",
-    "name": "에릭",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-019_爱宠.webp",
-    "name_cn": "埃里克"
-  },
-  {
-    "id": "N-020",
-    "name": "이글",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-020_铅玻璃.webp",
-    "name_cn": "小春雀儿"
-  },
-  {
-    "id": "N-021",
-    "name": "레이비스",
-    "grade": "N",
-    "orientation": "portrait",
-    "width": 716,
-    "height": 1000,
-    "thumb": "cards/thumb/N/N-021_莉拉妮.webp",
-    "name_cn": "爱宠"
-  },
-  {
-    "id": "N-022",
     "name": "슬라우치 햇",
     "grade": "N",
     "orientation": "portrait",
     "width": 716,
     "height": 1000,
-    "thumb": "cards/thumb/N/N-022_拉拉泉.webp",
+    "thumb": "cards/thumb/N/N-001_宽檐帽.webp",
     "name_cn": "宽檐帽"
   },
   {
-    "id": "N-023",
-    "name": "사츠키",
+    "id": "N-002",
+    "name": "로거헤드",
     "grade": "N",
     "orientation": "portrait",
     "width": 716,
     "height": 1000,
-    "thumb": "cards/thumb/N/N-023_哒哒达利.webp",
-    "name_cn": "五色月"
+    "thumb": "cards/thumb/N/N-002_空脑袋.webp",
+    "name_cn": "空脑袋"
   },
   {
-    "id": "N-024",
-    "name": "광대",
+    "id": "N-003",
+    "name": "네임데이",
     "grade": "N",
     "orientation": "portrait",
     "width": 716,
     "height": 1000,
-    "thumb": "cards/thumb/N/N-024_斯普特尼克.webp",
-    "name_cn": "弄臣"
+    "thumb": "cards/thumb/N/N-003_命名日.webp",
+    "name_cn": "命名日"
   },
   {
-    "id": "N-025",
-    "name": "스푸트니크",
+    "id": "N-004",
+    "name": "버디 페어차일드",
     "grade": "N",
     "orientation": "portrait",
     "width": 716,
     "height": 1000,
-    "thumb": "cards/thumb/N/N-025_约翰·提托.webp",
-    "name_cn": "斯普特尼克"
+    "thumb": "cards/thumb/N/N-004_嚼嚼松果.webp",
+    "name_cn": "嚼嚼松果"
   },
   {
-    "id": "N-026",
+    "id": "N-005",
     "name": "X",
     "grade": "N",
     "orientation": "portrait",
     "width": 716,
     "height": 1000,
-    "thumb": "cards/thumb/N/N-026_弄臣.webp",
+    "thumb": "cards/thumb/N/N-005_X.webp",
     "name_cn": "X"
   },
   {
-    "id": "N-027",
-    "name": "크리스탈로",
+    "id": "N-006",
+    "name": "마릴린",
     "grade": "N",
     "orientation": "portrait",
     "width": 716,
     "height": 1000,
-    "thumb": "cards/thumb/N/N-027_丽莎&路易斯.webp",
-    "name_cn": "铅玻璃"
+    "thumb": "cards/thumb/N/N-006_玛丽莲.webp",
+    "name_cn": "玛丽莲"
   },
   {
-    "id": "N-028",
+    "id": "N-007",
+    "name": "디케",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-007_帕米埃.webp",
+    "name_cn": "帕米埃"
+  },
+  {
+    "id": "N-008",
+    "name": "벌룬 파티",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-008_气球派对.webp",
+    "name_cn": "气球派对"
+  },
+  {
+    "id": "N-009",
+    "name": "사츠키",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-009_五色月.webp",
+    "name_cn": "五色月"
+  },
+  {
+    "id": "N-010",
+    "name": "베이비 블루",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-010_婴儿蓝.webp",
+    "name_cn": "婴儿蓝"
+  },
+  {
+    "id": "N-011",
+    "name": "테넌트",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-011_坦南特.webp",
+    "name_cn": "坦南特"
+  },
+  {
+    "id": "N-012",
     "name": "네크롤로지스트",
     "grade": "N",
     "orientation": "portrait",
     "width": 716,
     "height": 1000,
-    "thumb": "cards/thumb/N/N-028_无线电小姐.webp",
+    "thumb": "cards/thumb/N/N-012_讣告人.webp",
     "name_cn": "讣告人"
+  },
+  {
+    "id": "N-013",
+    "name": "APPLe",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-013_APPLe.webp",
+    "name_cn": "APPLe"
+  },
+  {
+    "id": "N-014",
+    "name": "이글",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-014_小春雀儿.webp",
+    "name_cn": "小春雀儿"
+  },
+  {
+    "id": "N-015",
+    "name": "파비아",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-015_狼群.webp",
+    "name_cn": "狼群"
+  },
+  {
+    "id": "N-016",
+    "name": "겨울",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-016_冬.webp",
+    "name_cn": "冬"
+  },
+  {
+    "id": "N-017",
+    "name": "빨간 망토",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-017_红斗篷.webp",
+    "name_cn": "红斗篷"
+  },
+  {
+    "id": "N-018",
+    "name": "에릭",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-018_埃里克.webp",
+    "name_cn": "埃里克"
+  },
+  {
+    "id": "N-019",
+    "name": "레이비스",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-019_爱宠.webp",
+    "name_cn": "爱宠"
+  },
+  {
+    "id": "N-020",
+    "name": "크리스탈로",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-020_铅玻璃.webp",
+    "name_cn": "铅玻璃"
+  },
+  {
+    "id": "N-021",
+    "name": "레일라니",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-021_莉拉妮.webp",
+    "name_cn": "莉拉妮"
+  },
+  {
+    "id": "N-022",
+    "name": "라 수르스",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-022_拉拉泉.webp",
+    "name_cn": "拉拉泉"
+  },
+  {
+    "id": "N-023",
+    "name": "다그닥 달리",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-023_哒哒达利.webp",
+    "name_cn": "哒哒达利"
+  },
+  {
+    "id": "N-024",
+    "name": "스푸트니크",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-024_斯普特尼克.webp",
+    "name_cn": "斯普特尼克"
+  },
+  {
+    "id": "N-025",
+    "name": "존 티토",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-025_约翰·提托.webp",
+    "name_cn": "约翰·提托"
+  },
+  {
+    "id": "N-026",
+    "name": "광대",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-026_弄臣.webp",
+    "name_cn": "弄臣"
+  },
+  {
+    "id": "N-027",
+    "name": "리사&루이스",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-027_丽莎&路易斯.webp",
+    "name_cn": "丽莎&路易斯"
+  },
+  {
+    "id": "N-028",
+    "name": "미스 라디오",
+    "grade": "N",
+    "orientation": "portrait",
+    "width": 716,
+    "height": 1000,
+    "thumb": "cards/thumb/N/N-028_无线电小姐.webp",
+    "name_cn": "无线电小姐"
   }
 ];

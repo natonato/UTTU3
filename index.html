@@ -940,7 +940,8 @@
   <script src="web_assets/cards_data.js"></script>
 
   <script>
-    const STORAGE_KEY = "uttu3_count_state_v3";
+    const OLD_STORAGE_KEY = "uttu3_count_state_v3";
+    const STORAGE_KEY = "uttu3_count_state_v4";
     const THICK_BORDER_KEY = "uttu3_thick_border_v1";
     let cardCounts = {}; 
     let currentPageId = 1;
@@ -992,8 +993,17 @@
 
     function loadSavedState() {
       try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) cardCounts = JSON.parse(saved);
+        const newSaved = localStorage.getItem(STORAGE_KEY);
+        if (newSaved !== null) {
+          cardCounts = JSON.parse(newSaved);
+          return;
+        }
+
+        // Fallback to legacy v3 save if present; v3 remains intact in localStorage
+        const oldSaved = localStorage.getItem(OLD_STORAGE_KEY);
+        if (oldSaved !== null) {
+          cardCounts = JSON.parse(oldSaved);
+        }
       } catch (e) {
         console.error(e);
       }
@@ -1001,6 +1011,7 @@
 
     function saveState() {
       try {
+        // Save to v4; legacy v3 is preserved untouched
         localStorage.setItem(STORAGE_KEY, JSON.stringify(cardCounts));
       } catch (e) {
         console.error(e);
